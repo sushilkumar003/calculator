@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .calculator {
+      background-color: #333;
+      border-radius: 11px;
+      padding: 36px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 294px;
+    }
+
+    .display {
+      background-color: #222;
+      color: white;
+      font-size: 2rem;
+      text-align: right;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    input[type="button"] {
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #666;
+    }
+
+    .button-clear {
+      background-color: #e74c3c;
+    }
+    .button-clear:hover {
+      background-color: #c0392b;
+    }
+
+    .button-equal {
+      background-color: #3498db;
+    }
+    .button-equal:hover {
+      background-color: #2980b9;
+    }
+
+    .button-operator {
+      background-color: #f39c12;
+    }
+    .button-operator:hover {
+      background-color: #e67e22;
+    }
+
+    .button-number {
+      background-color: #2ecc71;
+    }
+    .button-number:hover {
+      background-color: #27ae60;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form class="calculator" name="frm">
+    <input type="text" class="display" id="display" readonly name="nm">
+    <div class="button-grid">
+      <input type="button" class="button-clear" value="C" onclick="clearDisplay()">
+      <input type="button" class="button-operator" value="/" onclick="ab('/')">
+      <input type="button" class="button-operator" value="*" onclick="ab('*')">
+      <input type="button" class="button-operator" value="-" onclick="ab('-')">
+
+      <input type="button" class="button-number" value="7" onclick="ab('7')">
+      <input type="button" class="button-number" value="8" onclick="ab('8')">
+      <input type="button" class="button-number" value="9" onclick="ab('9')">
+      <input type="button" class="button-operator" value="+" onclick="ab('+')">
+
+      <input type="button" class="button-number" value="4" onclick="ab('4')">
+      <input type="button" class="button-number" value="5" onclick="ab('5')">
+      <input type="button" class="button-number" value="6" onclick="ab('6')">
+      <input type="button" class="button-equal" value="=" onclick="eql()">
+
+      <input type="button" class="button-number" value="1" onclick="ab('1')">
+      <input type="button" class="button-number" value="2" onclick="ab('2')">
+      <input type="button" class="button-number" value="3" onclick="ab('3')">
+      <input type="button" class="button-number" value="0" onclick="ab('0')">
+
+      <input type="button" class="button-number" value="." onclick="ab('.')">
+      <input type="button" class="button-clear" value="B" onclick="backspace()">
+    </div>
+  </form>
+
+  <script>
+          function ab(val){
+              document.frm.nm.value = document.frm.nm.value+val;
+          }
+
+          function eql(){
+            var a = document.frm.nm.value;
+            document.frm.nm.value = eval(a);
+          }
+
+          function clearDisplay(){
+            document.frm.nm.value="";
+          }
+          function backspace() {
+  document.frm.nm.value = document.frm.nm.value.slice(0, -1);
+}
+
+  </script>
+</body>
+</html>
